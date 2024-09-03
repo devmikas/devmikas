@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançamentos de Jogos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #049179;
+            color: #fff9f9;
+        }
+        header {
+            background-color: #02e3f3;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        #games-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .game {
+            background: #000000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(202, 16, 16, 0.2);
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .game img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #250404;
+        }
+        .game h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .game p {
+            font-size: 1em;
+            color: #ff0000;
+            padding: 0 10px;
+        }
+        .game-button {
+            background-color: #069488;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .game-button:hover {
+            background-color: #0abeaf;
+        }
+        h1{
+            color: black;
+        }
+        p{
+            color: rgb(160, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A maior plataforma de gamer's </h1>
+        <p>X1 WEB</p>
+    </header>
+    <div id="games-container">
+        <div class="game">
+            <img src="r1.jpeg" alt="Jogo 1">
+            <h2>gamer boy</h2>
+            <p> Este jogo e voltado para gamer esperientes!</p>
+            <button class="game-button" onclick="moreInfo('Jogo 1')">Mais Info</button>
+        </div>
+        <div class="game">
+            <img src="r2.jpeg" alt="Jogo 2">
+            <h2>kids global</h2>
+            <p>jogos para criancas ate 13 anos </p>
+            <button class="game-button" onclick="moreInfo('Jogo 2')">Mais Info</button>
+        </div>
+        <div class="game">
+            <img src="r3.jpeg" alt="Jogo 3">
+            <h2>dark night</h2>
+            <p>Descrição breve do Jogo 3. Prepare-se para uma experiência única!</p>
+            <button class="game-button" onclick="moreInfo('Jogo 3')">Mais Info</button>
+        </div>
+    </div>
+    <script>
+        function moreInfo(gameName) {
+            alert(`Você clicou para mais informações sobre ${gameName}.`);
+        }
+    </script>
+</body>
+</html>
