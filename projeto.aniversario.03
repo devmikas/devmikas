@@ -1,0 +1,14 @@
+document.getElementById('invitationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Obtém os valores dos campos do formulário
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    
+    // Exibe uma mensagem de confirmação
+    const responseMessage = `Obrigado, ${name}! Seu convite foi enviado para ${email}.`;
+    document.getElementById('responseMessage').textContent = responseMessage;
+
+    // Opcional: Você pode adicionar código aqui para enviar os dados para um servidor, se desejar
+}
+);
