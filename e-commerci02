@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #020101;
+            background-color: #090909;
+            perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+        }
+        header {
+            background-color: #ff0c0cf1;
+            color: rgb(255, 0, 0);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(125, 7, 7, 0.2);
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .products, .cart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .product, .cart-item {
+            background: rgb(110, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: calc(33.333% - 2rem);
+            box-sizing: border-box;
+            transform-style: preserve-3d; /* Permite a aplicação de transformações 3D */
+        }
+        .product:hover, .cart-item:hover {
+            transform: rotateY(5deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(77, 66, 66, 0.3);
+        }
+        .product img, .cart-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .product button, .cart-item button {
+            background-color: #ff0404;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .product button:hover, .cart-item button:hover {
+            background-color: #780000;
+            transform: scale(1.05);
+        }
+        .cart-item {
+            width: calc(100% - 2rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+        }
+        .cart-item img {
+            max-width: 80px; /* Menor tamanho para o carrinho */
+        }
+        .cart-item button {
+            background-color: #e4d4d3;
+        }
+        .cart-item button:hover {
+            background-color: #c0392b;
+        }
+        .cart-summary {
+            background: rgb(62, 37, 37);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+        }
+        .cart-summary button {
+            background-color: #2ecc71; /* Cor verde para o botão de finalizar compra */
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem; /* Maior padding para um botão mais destacado */
+            font-size: 1rem; /* Tamanho da fonte */
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        .cart-summary button:hover {
+            background-color: #27ae60; /* Cor verde mais escura ao passar o mouse */
+            transform: scale(1.05);
+        }
+        h1 {
+            color: transparent; /* Define o texto como transparente para aplicar o gradiente como cor de fundo */
+            font-size: 3rem; /* Tamanho da fonte aumentado para maior impacto */
+            background: linear-gradient(45deg, #0033A0, #0033A0, #009B77, #F0E200); /* Gradiente com cores associadas ao autismo */
+            -webkit-background-clip: text; /* Faz com que o gradiente apareça como a cor do texto */
+            background-clip: text; /* Aplique o gradiente ao texto */
+            text-shadow: 1px 1px 3px rgba(251, 19, 19, 0.3); /* Adiciona uma sombra ao texto para destacar o gradiente */
+            transform: perspective(1200px) rotateX(0deg) rotateY(0deg); /* Aplica a transformação 3D */
+            animation: rotateAnimation 10s infinite linear; /* Animação de rotação contínua */
+            transition: transform 0.6s; /* Anima a transformação */
+        }
+        h1:hover {
+            transform: perspective(1200px) rotateX(15deg) rotateY(15deg); /* Aplica uma rotação extra ao passar o mouse */
+        }
+        @keyframes rotateAnimation {
+            0% {
+                transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(1200px) rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Juiz da Moda</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="products">
+            <div class="product" data-id="1" data-name="Camisa masculina" data-price="29.99">
+                <img src="01camisa.webp" alt="Camisa masculina">
+                <h2>Camisa masculina</h2>
+                <p>R$29.99</p>
+                <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product" data-id="2" data-name="Caça masculina" data-price="69.90">
+                <img src="OIP.jpeg" alt="Caça masculina">
+                <h2>Caça masculina</h2>
+                <p>R$69.90</p>
+                <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product" data-id="3" data-name="Blusa de time" data-price="90.00">
+                <img src="OIP (1).jpeg" alt="Blusa de time">
+                <h2>Blusa de time</h2>
+                <p>R$90.00</p>
+                <button onclick="addToCart(3)">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Carrinho</h2>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                <h3>Total: <span id="total">R$0.00</span></h3>
+                <button onclick="checkout()">Finalizar Compra</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const cart = {};
+
+        function updateCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalSpan = document.getElementById('total');
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+
+            for (const id in cart) {
+                const item = cart[id];
+                const productElement = document.createElement('div');
+                productElement.classList.add('cart-item');
+                // Get the correct image for the item
+                const imgSrc = document.querySelector(`.product[data-id="${id}"] img`).src;
+                productElement.innerHTML = `
+                    <img src="${imgSrc}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>R$${item.price.toFixed(2)}</p>
+                    </div>
+                    <button onclick="removeFromCart(${id})">Remover</button>
+                `;
+                cartItemsDiv.appendChild(productElement);
+                total += item.price;
+            }
+
+            totalSpan.textContent = `R$${total.toFixed(2)}`;
+        }
+
+        function addToCart(id) {
+            const productElement = document.querySelector(`.product[data-id="${id}"]`);
+            const name = productElement.getAttribute('data-name');
+            const price = parseFloat(productElement.getAttribute('data-price'));
+
+            if (!cart[id]) {
+                cart[id] = { name, price };
+            }
+
+            updateCart();
+        }
+
+        function removeFromCart(id) {
+            delete cart[id];
+            updateCart();
+        }
+
+        function checkout() {
+            if (Object.keys(cart).length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+
+            alert('Compra finalizada! Obrigado pela sua compra.');
+            // Clear cart
+            for (const id in cart) {
+                delete cart[id];
+            }
+            updateCart();
+        }
+
+        updateCart(); // Initial update to ensure empty cart is reflected
+    </script>
+</body>
+</html>
