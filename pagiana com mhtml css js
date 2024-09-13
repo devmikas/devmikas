@@ -1,0 +1,193 @@
+ <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Curso Completo de JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        ul {
+            margin: 10px 0 20px 20px;
+            list-style-type: disc;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Curso Completo de JavaScript para Iniciantes</h1>
+</header>
+
+<main>
+    <section>
+        <h2>1. Introdução ao JavaScript</h2>
+        <ul>
+            <li><strong>O que é JavaScript?</strong>: Explicação sobre o que é e como é utilizado.</li>
+            <li><strong>Instalação e configuração:</strong> Uso do DevTools no navegador e instalação do Visual Studio Code.</li>
+            <li><strong>Primeiro script:</strong> Como inserir JS num ficheiro HTML, tanto inline como externo.</li>
+        </ul>
+        <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Introducao" target="_blank">Recurso recomendado: MDN JavaScript Basics</a></p>
+    </section>
+
+    <section>
+        <h2>2. Sintaxe e Fundamentos</h2>
+        <ul>
+            <li>Variáveis: <code>var</code>, <code>let</code> e <code>const</code>.</li>
+            <li>Tipos de Dados: Strings, números, booleans, arrays, objetos.</li>
+            <li>Operadores: Aritméticos, comparativos, lógicos e de atribuição.</li>
+            <li>Estruturas de Controle: <code>if</code>, <code>else</code>, <code>switch</code>, <code>for</code>, <code>while</code>, <code>do while</code>.</li>
+        </ul>
+        <p><a href="https://www.w3schools.com/js/" target="_blank">Recurso recomendado: W3Schools JavaScript Tutorial</a></p>
+    </section>
+
+    <section>
+        <h2>3. Funções e Manipulação de Dados</h2>
+        <ul>
+            <li>Declaração de funções, funções anónimas, parâmetros e retorno de valores.</li>
+            <li>Funções de ordem superior: <code>map</code>, <code>filter</code>, <code>reduce</code>.</li>
+            <li>Métodos para manipular arrays: <code>push</code>, <code>pop</code>, <code>shift</code>, <code>unshift</code>.</li>
+            <li>Propriedades e métodos de objetos.</li>
+        </ul>
+        <p><a href="https://www.freecodecamp.org/learn" target="_blank">Recurso recomendado: FreeCodeCamp JavaScript Course</a></p>
+    </section>
+
+    <section>
+        <h2>4. DOM (Document Object Model)</h2>
+        <ul>
+            <li>Como o JavaScript interage com o HTML.</li>
+            <li>Métodos para selecionar elementos HTML: <code>getElementById</code>, <code>querySelector</code>.</li>
+            <li>Manipulação de elementos: Alterar texto, atributos, estilos.</li>
+            <li>Eventos: <code>click</code>, <code>mouseover</code>, <code>keydown</code>, etc.</li>
+        </ul>
+        <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction" target="_blank">Recurso recomendado: MDN - Manipulação do DOM</a></p>
+    </section>
+
+    <section>
+        <h2>5. Eventos e Manipulação de Eventos</h2>
+        <ul>
+            <li>Como adicionar eventos aos elementos HTML.</li>
+            <li>Uso de <code>addEventListener</code> para escutar eventos.</li>
+            <li>Criação e gestão de eventos personalizados.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Programação Assíncrona</h2>
+        <ul>
+            <li>Funções de callback.</li>
+            <li>Promessas e seu uso com <code>then</code> e <code>catch</code>.</li>
+            <li>Async/Await para uma abordagem moderna da programação assíncrona.</li>
+        </ul>
+        <p><a href="https://javascript.info/async" target="_blank">Recurso recomendado: JavaScript.info - Assíncrono</a></p>
+    </section>
+
+    <section>
+        <h2>7. AJAX e APIs</h2>
+        <ul>
+            <li>Fazer pedidos HTTP com JavaScript.</li>
+            <li>Utilização da Fetch API para fazer pedidos a servidores.</li>
+            <li>Trabalhar com JSON: Enviar e receber dados.</li>
+        </ul>
+        <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API" target="_blank">Recurso recomendado: MDN - AJAX e APIs</a></p>
+    </section>
+
+    <section>
+        <h2>8. ES6+ (Novas Funcionalidades)</h2>
+        <ul>
+            <li>Arrow Functions: Diferenças face às funções tradicionais.</li>
+            <li>Destructuring para arrays e objetos.</li>
+            <li>Template Literals: Sintaxe moderna para strings.</li>
+            <li>Módulos: Importação e exportação de ficheiros JS.</li>
+        </ul>
+        <p><a href="https://es6.io/" target="_blank">Recurso recomendado: ES6+ Features</a></p>
+    </section>
+
+    <section>
+        <h2>9. Bibliotecas e Frameworks JavaScript</h2>
+        <ul>
+            <li>Introdução ao jQuery (opcional).</li>
+            <li>Introdução ao React para aplicações de interface do utilizador.</li>
+            <li>Node.js para programar com JS no backend.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>10. Projetos Práticos</h2>
+        <ul>
+            <li>To-do List: Lista de tarefas interativa.</li>
+            <li>Quiz Interativo: Jogo de perguntas e respostas.</li>
+            <li>App de clima: Usar uma API para obter dados climáticos.</li>
+        </ul>
+        <p><a href="https://javascript30.com/" target="_blank">Recurso recomendado: JavaScript30 - Projetos práticos</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>Explora mais cursos e materiais didáticos</p>
+</footer>
+
+</body>
+</html>
