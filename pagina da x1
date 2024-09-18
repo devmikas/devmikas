@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X1 WEB SITES</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0dcda0b7;
+        color: #000000;
+        perspective: 1000px; /* Adiciona perspectiva 3D */
+        overflow-x: hidden; /* Impede rolagem horizontal */
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header {
+        background: #0c4a42;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        transform-style: preserve-3d; /* Permite efeitos 3D */
+        transition: transform 0.5s;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(121, 8, 8, 0.3);
+        transform: rotateX(0deg);
+      }
+
+      header:hover {
+        transform: rotateX(5deg);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      header p {
+        margin: 10px 0 0;
+        font-size: 1.2em;
+      }
+
+      main {
+        padding: 20px 0;
+        transform-style: preserve-3d; /* Permite efeitos 3D */
+      }
+
+      section {
+        margin: 20px 0;
+        position: relative;
+      }
+
+      .benefits ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .benefits ul li {
+        color: #050202;
+        background: #cde0d8;
+        margin: 10px 0;
+        padding: 20px;
+        border: 1px solid #050202;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: perspective(500px) rotateX(0deg);
+        transition: transform 0.3s;
+      }
+
+      .benefits ul li:hover {
+        transform: perspective(500px) rotateX(5deg);
+      }
+
+      .testimonials blockquote {
+        border-left: 5px solid #060404;
+        padding: 20px;
+        margin: 10px 0;
+        background: #0f709dd6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: perspective(500px) rotateY(0deg);
+        transition: transform 0.3s;
+      }
+
+      .testimonials blockquote:hover {
+        transform: perspective(500px) rotateY(5deg);
+      }
+
+      .cta {
+        text-align: center;
+      }
+
+      #whatsapp-btn {
+        background: #169e48;
+        color: #fff;
+        border: none;
+        padding: 15px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease, transform 0.3s ease;
+        transform-style: preserve-3d;
+      }
+
+      #whatsapp-btn:hover {
+        background: #025f25;
+        transform: scale(1.05) rotateY(5deg);
+      }
+
+      footer {
+        background: #060404;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .portfolio {
+        text-align: center;
+      }
+
+      .portfolio img {
+        max-width: 100%;
+        height: auto;
+        margin: 10px;
+        border: 5px solid #419c76;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform-style: preserve-3d;
+        transition: transform 0.3s;
+      }
+
+      .portfolio img:hover {
+        transform: rotateY(10deg);
+      }
+
+      .portfolio h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transform-style: preserve-3d;
+        transition: transform 0.3s;
+      }
+
+      .portfolio h2:hover {
+        transform: rotateX(5deg);
+      }
+      .lu {
+        color: #000000;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1><strong>X12 WEB SITES</strong></h1>
+        <p>Transforme sua página web com os melhores desenvolvedores!</p>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div class="container">
+          <h2>Que ter sua propria pagina web ?</h2>
+          <p class="lu">
+            Conheça nosso portfolio , a solução personalizada para resolver seu
+            problema!
+          </p>
+        </div>
+      </section>
+      <section class="benefits">
+        <div class="container">
+          <h2><strong>sobre nosso serviso </strong></h2>
+          <ul>
+            <li>
+              Ao contratar nossa empresa, você recebe um design de website
+              totalmente personalizado, criado para refletir a identidade única
+              da sua marca. Nossos designers experientes trabalham com você para
+              entender sua visão e objetivos, garantindo que seu site não apenas
+              se destaque visualmente, mas também seja alinhado com sua
+              identidade corporativa. <br /><br />
+              Detalhes:
+              <br /><br />
+              Design Exclusivo: Cada website é feito sob medida para atender às
+              suas necessidades e preferências específicas. Experiência de
+              Usuário (UX): Criamos interfaces intuitivas e atraentes que
+              melhoram a navegação e a experiência do usuário. Aprimoramento da
+              Marca: Fortaleça sua identidade de marca com um design que
+              comunica claramente seus valores e missão.
+            </li>
+            <li>
+              Nossos websites são projetados com as melhores práticas de SEO em
+              mente, garantindo que seu site tenha uma boa classificação nos
+              motores de busca e atraia mais visitantes qualificados. A
+              otimização SEO é fundamental para aumentar a visibilidade online e
+              gerar mais tráfego orgânico. <br /><br />
+              Detalhes:
+              <br /><br />
+              Estrutura SEO-Friendly: Implementação de práticas recomendadas
+              para melhorar a indexação e a visibilidade nos motores de busca.
+              Palavras-Chave e Conteúdo: Utilizamos pesquisa de palavras-chave e
+              criamos conteúdo relevante e otimizado para SEO. Velocidade e
+              Desempenho: Nossos sites são projetados para carregar rapidamente
+              e oferecer uma ótima experiência ao usuário, fatores importantes
+              para o ranking de SEO.
+            </li>
+            <li>
+              Além da criação do website, oferecemos suporte contínuo e serviços
+              de manutenção para garantir que seu site esteja sempre atualizado
+              e funcionando sem problemas. Estamos aqui para resolver qualquer
+              problema e fazer atualizações sempre que necessário, permitindo
+              que você se concentre no crescimento do seu negócio. <br /><br />
+              Detalhes:
+              <br /><br />
+              Manutenção Regular: Atualizações de software, backups e
+              monitoramento de segurança para proteger seu site contra ameaças e
+              falhas. Suporte Técnico: Equipe dedicada para ajudar com qualquer
+              problema técnico ou dúvida que possa surgir. Ajustes e Melhorias:
+              Implementação de melhorias e ajustes conforme necessário para
+              manter seu site moderno e funcional.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="portfolio">
+        <div class="container">
+          <h2>Veja Alguns Exemplos do Nosso Trabalho</h2>
+
+          <p><strong> Essa foto e de um pogeto pessoal!</strong></p>
+          <img src="img001.jpeg" alt="Exemplo de Trabalho 1" />
+          <p><strong>Essa e uma paginade uma cliente .</strong></p>
+          <img src="imh02.jpeg" alt="Exemplo de Trabalho 2" />
+        </div>
+      </section>
+      <section class="cta">
+        <div class="container">
+          <h2>Quer saber mais?</h2>
+          <p>
+            Clique no botão abaixo e entre em contato diretamente pelo WhatsApp.
+            Estou à disposição para responder suas perguntas e ajudar você a dar
+            o próximo passo para sua página web.
+
+            <button id="whatsapp-btn">Fale Conosco pelo WhatsApp</button>
+          </p>
+          <br>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <br>
+        <p>
+          &copy; <strong>2024 X1 WEB SITES</strong>. Todos os direitos
+          reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
