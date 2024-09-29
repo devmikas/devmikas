@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Página Web</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #121212; /* Fundo escuro */
+        color: #e3f2fd; /* Texto claro */
+      }
+      header {
+        background-color: #1e1e1e; /* Azul escuro */
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Texto com efeito de sombra 3D */
+      }
+      nav {
+        background-color: #000000;
+        text-align: center;
+        padding: 10px;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        margin: 0 10px;
+        transition: transform 0.3s;
+      }
+      nav ul li:hover {
+        transform: translateY(-5px) rotateY(10deg);
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #e3f2fd; /* Texto claro */
+        padding: 10px 20px;
+        background-color: #25a38a; /* Azul escuro */
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      nav ul li a:hover {
+        background-color: #083930; /* Cor mais clara ao passar o mouse */
+      }
+      section {
+        padding: 20px;
+        background-color: #1e1e1e; /* Azul escuro */
+        margin: 20px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+        text-shadow: 1px 1px 4px rgba(74, 94, 93, 0.878); /* Texto com sombra 3D */
+      }
+      section h2 {
+        color: #eeeff0; /* Azul mais claro para os títulos */
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #1e1e1e;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Efeito de sombra no rodapé */
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      .whatsapp-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #084f3d; /* Verde do WhatsApp */
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+      }
+      .whatsapp-button:hover {
+        background-color: #479f8e; /* Cor mais escura ao passar o mouse */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7), 0 8px 24px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>X1 websites</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="lu2.html">Sobre</a></li>
+        <li><a href="lu3.html">Logar</a></li>
+      </ul>
+    </nav>
+    <section id="menu">
+      <h2>Meus Projetos</h2>
+      <p>Meus projetos no GitHub (devmikas).</p>
+      <p>Aqui você pode encontrar uma lista dos meus projetos mais recentes.</p>
+    </section>
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p>
+        Um breve resumo sobre mim e minhas experiências. Somos uma empresa
+        voltada à tecnologia de web sites que pretende crescer no mercado.
+      </p>
+    </section>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Instagram: @dev_mikas</p>
+      <p>WhatsApp: clique no botão abaixo.</p>
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/seunumerodetelefone"
+        target="_blank"
+        >Fale Conosco no WhatsApp</a
+      >
+    </section>
+    <footer>
+      <p>
+        &copy; <strong>2024 x1 website. Todos os direitos reservados.</strong>
+      </p>
+    </footer>
+  </body>
+</html>

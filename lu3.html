@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000000; /* Fundo preto */
+        color: #ffffff; /* Letras brancas */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      form {
+        background-color: #000000; /* Fundo do formulário escuro */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        width: 300px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #555555;
+        border-radius: 4px;
+        background-color: #222222;
+        color: #ffffff;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #error-message {
+        color: rgb(0, 0, 0);
+        margin-bottom: 10px;
+      }
+
+      /* Estilos para o botão Voltar */
+      .back-button {
+        display: inline-block;
+        padding: 5px 10px; /* Diminui o padding */
+        margin-top: 20px;
+        width: 150px; /* Define a largura do botão Voltar */
+        background-color: #045e5e;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        text-align: center;
+        cursor: pointer;
+        font-size: 0.9em; /* Diminui o tamanho da fonte */
+      }
+
+      .back-button:hover {
+        background-color: #63c9e9;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const errorMessage = document.getElementById("error-message");
+
+        if (username === "" || email === "") {
+          errorMessage.textContent = "Todos os campos devem ser preenchidos.";
+          return false; // Impede o envio do formulário
+        }
+
+        errorMessage.textContent = ""; // Limpa a mensagem de erro
+        return true; // Permite o envio do formulário
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Formulário de Login</h1>
+
+    <!-- Atualize a ação do formulário para enviar para send_email.php -->
+    <form
+      action="send_email.php"
+      method="post"
+      onsubmit="return validateForm()"
+    >
+      <h2>Login</h2>
+      <div id="error-message"></div>
+      <label for="username">Usuário:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Digite seu nome de usuário"
+      />
+
+      <label for="email">E-mail:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Digite seu e-mail"
+      />
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Botão Voltar como um link para outra página -->
+    <a class="back-button" href="lu.html">Voltar</a>
+  </body>
+</html>
