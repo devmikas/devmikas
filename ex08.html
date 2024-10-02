@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran MG</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #e3f2fd;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .container input[type="button"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .container input[type="button"]:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #res p {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        #res strong {
+            color: #d32f2f;
+        }
+
+        #res .parabens {
+            color: #388e3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Multas</h1>
+        Velocidade do carro: 
+        <input type="number" name="txtvel" id="txtvel"> km/h  
+        <input type="button" value="Verificar" onclick="calcular()">
+        <div id="res"></div>
+    </div>
+    <script>
+        function calcular() {
+            var txtv = document.querySelector('input#txtvel');
+            var res = document.querySelector('div#res');
+            var vel = Number(txtv.value);
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel} km/h</strong></p>`;
+            if (vel > 60) {
+                res.innerHTML += `<p>Você está <strong>MULTADO</strong> por excesso de velocidade</p>`;
+            } else {
+                res.innerHTML += `<p class="parabens">Parabéns! Você está dirigindo dentro da velocidade permitida.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
