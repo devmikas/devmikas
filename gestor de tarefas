@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lembrete de Tarefas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #3dc0a4;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button, textarea {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 5px;
+    }
+    #tarefa-atual {
+      font-size: 1.5rem;
+      color: #09090a;
+      margin-top: 20px;
+    }
+    #historico {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+      text-align: left;
+    }
+    #historico li {
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .pendente {
+      background: #1d776c; 
+    }
+    .concluida {
+      background: #43582b;
+      text-decoration: line-through;
+    }
+    .atual {
+      background: #f90606;
+    }
+    #observacao-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+    }
+    #observacao {
+      width: 100%;
+      height: 100px;
+    }
+    .observacao-botoes {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Qual tarefa devo fazer agora?</h1>
+  <input type="text" id="nova-tarefa" placeholder="Adicione uma tarefa">
+  <button onclick="adicionarTarefa()">Adicionar</button>
+  <button onclick="limparLista()">Limpar Lista</button>
+  <p id="tarefa-atual">Nenhuma tarefa ainda!</p>
+  <ul id="historico"></ul>
+
+  <div id="observacao-container">
+    <textarea id="observacao" placeholder="Adicione uma observação sobre a tarefa em andamento..."></textarea>
+    <div class="observacao-botoes">
+      <button onclick="salvarObservacao()">Salvar Observação</button>
+      <button onclick="limparObservacao()">Limpar Observação</button>
+    </div>
+  </div>
+
+  <script>
+    const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+    const historico = JSON.parse(localStorage.getItem('historico')) || [];
+    const observacoes = JSON.parse(localStorage.getItem('observacoes')) || {};
+    let tarefaEmAndamento = localStorage.getItem('tarefaEmAndamento') || '';
+
+    function salvarDados() {
+      localStorage.setItem('tarefas', JSON.stringify(tarefas));
+      localStorage.setItem('historico', JSON.stringify(historico));
+      localStorage.setItem('observacoes', JSON.stringify(observacoes));
+      localStorage.setItem('tarefaEmAndamento', tarefaEmAndamento);
+    }
+
+    function salvarObservacao() {
+      const observacao = document.getElementById('observacao').value;
+      if (tarefaEmAndamento) {
+        observacoes[tarefaEmAndamento] = observacao;
+        salvarDados();
+        alert('Observação salva!');
+      } else {
+        alert('Selecione uma tarefa primeiro!');
+      }
+    }
+
+    function limparObservacao() {
+      document.getElementById('observacao').value = '';
+      if (tarefaEmAndamento) {
+        delete observacoes[tarefaEmAndamento];
+        salvarDados();
+      }
+      alert('Observação limpa!');
+    }
+
+    function limparLista() {
+      if (confirm('Tem certeza que deseja limpar toda a lista?')) {
+        tarefas.length = 0;
+        historico.length = 0;
+        tarefaEmAndamento = '';
+        localStorage.removeItem('tarefas');
+        localStorage.removeItem('historico');
+        localStorage.removeItem('observacoes');
+        localStorage.removeItem('tarefaEmAndamento');
+        atualizarHistorico();
+        document.getElementById('tarefa-atual').innerText = 'Nenhuma tarefa ainda!';
+        document.getElementById('observacao').value = '';
+      }
+    }
+
+    function atualizarHistorico() {
+      const listaHistorico = document.getElementById('historico');
+      listaHistorico.innerHTML = tarefas.map(tarefa => `
+        <li class='${tarefa === tarefaEmAndamento ? "atual" : "pendente"}' onclick='selecionarTarefa("${tarefa}")'>
+          ${tarefa}
+        </li>`).join('') +
+        historico.map(tarefa => `<li class='concluida'>${tarefa}</li>`).join('');
+    }
+
+    function adicionarTarefa() {
+      const input = document.getElementById('nova-tarefa');
+      const tarefa = input.value.trim();
+      if (tarefa) {
+        tarefas.push(tarefa);
+        input.value = '';
+        salvarDados();
+        atualizarHistorico();
+      } else {
+        alert('Por favor, digite uma tarefa válida.');
+      }
+    }
+
+    function selecionarTarefa(tarefa) {
+      tarefaEmAndamento = tarefa;
+      document.getElementById('tarefa-atual').innerText = `Agora: ${tarefaEmAndamento}`;
+      document.getElementById('observacao').value = observacoes[tarefa] || '';
+      salvarDados();
+      atualizarHistorico();
+    }
+
+    atualizarHistorico();
+    if (tarefaEmAndamento) {
+      document.getElementById('tarefa-atual').innerText = `Agora: ${tarefaEmAndamento}`;
+      document.getElementById('observacao').value = observacoes[tarefaEmAndamento] || '';
+    }
+  </script>
+</body>
+</html>
