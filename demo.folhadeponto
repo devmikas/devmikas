@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folha de Ponto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #121212;
+            color: #fff;
+            flex-wrap: wrap;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            width: 300px;
+            transform: perspective(1000px) rotateY(5deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.05);
+        }
+        h2 {
+            text-align: center;
+            color: yellow;
+        }
+        button, input[type="time"], input[type="text"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input[type="text"], input[type="time"] {
+            background-color: #333;
+            color: #fff;
+        }
+        .timesheet {
+            margin-top: 20px;
+        }
+        .overtime {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const employees = [1, 2, 3, 4];
+        function createEmployeeContainer(id) {
+            document.write(`
+                <div class="container" id="funcionario${id}">
+                    <input type="text" id="employeeName${id}" placeholder="Nome do Funcionário" oninput="updateEmployeeName(${id})" />
+                    <h2 id="employeeTitle${id}">Folha de Ponto - Funcionário ${id}</h2>
+                    <input type="time" id="customTime${id}" placeholder="Definir Horário" />
+                    <button onclick="recordTime('funcionario${id}', 'entrada')">Registrar Entrada</button>
+                    <button onclick="recordTime('funcionario${id}', 'almoco_saida')">Saída para Almoço</button>
+                    <button onclick="recordTime('funcionario${id}', 'almoco_volta')">Volta do Almoço</button>
+                    <button onclick="recordTime('funcionario${id}', 'saida')">Registrar Saída</button>
+                    <div class="timesheet" id="timesheet${id}"></div>
+                </div>
+            `);
+            loadTimesheet(id);
+        }
+        employees.forEach(id => createEmployeeContainer(id));
+
+        function updateEmployeeName(id) {
+            const nameInput = document.getElementById(`employeeName${id}`).value;
+            const title = document.getElementById(`employeeTitle${id}`);
+            title.textContent = nameInput ? `Folha de Ponto - ${nameInput}` : `Folha de Ponto - Funcionário ${id}`;
+            localStorage.setItem(`employeeName${id}`, nameInput);
+        }
+
+        function recordTime(employeeId, action) {
+            const id = employeeId.replace('funcionario', '');
+            const customTimeInput = document.getElementById(`customTime${id}`);
+            const customTime = customTimeInput.value;
+            const now = new Date();
+            const time = customTime || now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            const date = now.toLocaleDateString('pt-BR');
+            const timesheet = document.getElementById(`timesheet${id}`);
+
+            let actionText = '';
+            switch(action) {
+                case 'entrada': actionText = 'Entrada'; break;
+                case 'almoco_saida': actionText = 'Saída para Almoço'; break;
+                case 'almoco_volta': actionText = 'Volta do Almoço'; break;
+                case 'saida': actionText = 'Saída'; break;
+            }
+
+            const [hour, minute] = time.split(':').map(Number);
+            const isOvertime = hour > 17 || (hour === 17 && minute > 0);
+
+            const record = `${date} - ${actionText}: <span class="${isOvertime ? 'overtime' : ''}">${time}</span>`;
+            timesheet.innerHTML += `<p>${record}</p>`;
+
+            const savedRecords = JSON.parse(localStorage.getItem(`timesheet${id}`)) || [];
+            savedRecords.push(record);
+            localStorage.setItem(`timesheet${id}`, JSON.stringify(savedRecords));
+
+            customTimeInput.value = '';
+        }
+
+        function loadTimesheet(id) {
+            const savedName = localStorage.getItem(`employeeName${id}`);
+            if (savedName) {
+                document.getElementById(`employeeName${id}`).value = savedName;
+                document.getElementById(`employeeTitle${id}`).textContent = `Folha de Ponto - ${savedName}`;
+            }
+
+            const savedRecords = JSON.parse(localStorage.getItem(`timesheet${id}`)) || [];
+            const timesheet = document.getElementById(`timesheet${id}`);
+            savedRecords.forEach(record => {
+                timesheet.innerHTML += `<p>${record}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
